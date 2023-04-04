@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"id"}, callSuper = true)
-public class Customer extends AbstractBaseEntity{
+public class Customer extends AbstractBaseEntity {
 
     @Column(name = "NAME", nullable = false)
     private String name;
@@ -21,10 +21,10 @@ public class Customer extends AbstractBaseEntity{
     @Column(name = "SURNAME", nullable = false)
     private String surname;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private List<CustomerContact> customerContacts;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customer")
-    private List<Order> orderList;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private List<BookOrder> bookOrderList;
 
 }

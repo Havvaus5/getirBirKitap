@@ -8,11 +8,11 @@ public class CustomerDTO {
     @NotBlank
     private String name;
     @NotBlank
-    private String surName;
+    private String surname;
     @NotBlank
     private String phoneNumber;
     @NotBlank
     private String adres;
     @NotBlank
-    private String mail;
+    private String email;
 }

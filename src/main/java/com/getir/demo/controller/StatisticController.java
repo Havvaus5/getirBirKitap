@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/report")
+@RequestMapping(value = "/statistic")
 @RequiredArgsConstructor
-public class ReportController {
+public class StatisticController {
 
     private final ReportService reportService;
 

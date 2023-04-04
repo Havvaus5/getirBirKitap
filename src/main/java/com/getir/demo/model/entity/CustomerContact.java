@@ -1,9 +1,6 @@
 package com.getir.demo.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -15,6 +12,7 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"}, callSuper = true)
 public class CustomerContact extends AbstractBaseEntity {
 
+    @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
 

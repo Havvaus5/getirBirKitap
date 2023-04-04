@@ -8,11 +8,11 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "ORDER", schema = "GETIR")
+@Table(name = "BOOK_ORDER", schema = "GETIR")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"id"}, callSuper = true)
-public class Order extends AbstractBaseEntity {
+public class BookOrder extends AbstractBaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID")

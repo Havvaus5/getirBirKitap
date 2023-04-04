@@ -5,13 +5,11 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class OrderDTO {
-    @NotNull
-    private Long customerId;
+public class UpdateBookDTO {
     @NotNull
     private Long bookId;
 
-    @Min(value = 1, message = "Sipariş sayısı en az bir olmalıdır")
-    private int orderQuantity;
+    @Min(value = 1, message = "En az bir stok olmalı")
+    private int stockQuantity;
 
 }

@@ -28,11 +28,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public String save(CustomerDTO customerDTO) {
-        CustomerContact customerContact = customerMapper.maptoContact(customerDTO);
-        customerContact = customerContactRepository.save(customerContact);
-
-        Customer customer = customerMapper.map(customerDTO, customerContact);
+        Customer customer = customerMapper.map(customerDTO);
         customer = customerRepository.save(customer);
+
+        CustomerContact customerContact = customerMapper.maptoContact(customerDTO);
+        customerContact.setCustomer(customer);
+        customerContactRepository.save(customerContact);
+
         return String.format("Müşteri %s id ile sisteme kaydedilmiştir.", customer.getId());
     }
 

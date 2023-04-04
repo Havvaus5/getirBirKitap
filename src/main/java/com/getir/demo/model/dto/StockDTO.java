@@ -6,5 +6,5 @@ import lombok.Data;
 public class StockDTO {
     private Long bookId;
     private String bookName;
-    private int stockNumber;
+    private int stockQuantity;
 }

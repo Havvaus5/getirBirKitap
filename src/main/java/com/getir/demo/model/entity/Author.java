@@ -21,7 +21,11 @@ public class Author extends AbstractBaseEntity {
     @Column(name = "SURNAME", nullable = false)
     private String surname;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "author")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
     private List<Book> bookList;
 
+    public Author(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
 }

@@ -20,11 +20,17 @@ public class Book extends AbstractBaseEntity {
     @Column(name = "PRICE", nullable = false)
     private BigDecimal price;
 
+    @Column(name = "STOCK_QUANTITY")
+    private int stockQuantity;
+
     @ManyToOne
     @JoinColumn(name = "AUTHOR_ID")
     private Author author;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "book")
-    private Stock stock;
+    public void updateStockNumber(int orderQuantity) {
+        this.stockQuantity = this.stockQuantity - orderQuantity;
+    }
+
+
 
 }

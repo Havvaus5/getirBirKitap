@@ -1,7 +1,7 @@
 package com.getir.demo.service.impl;
 
 import com.getir.demo.model.data.OrderStatics;
-import com.getir.demo.repository.OrderRepository;
+import com.getir.demo.repository.BookOrderRepository;
 import com.getir.demo.service.ReportService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -14,11 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 public class ReportServiceImpl implements ReportService {
 
-    private final OrderRepository orderRepository;
+    private final BookOrderRepository bookOrderRepository;
 
     @Override
     public List<OrderStatics> getMonthlyStatics() {
-        List<OrderStatics> orders = orderRepository.getMonthlyStatics();
+        List<OrderStatics> orders = bookOrderRepository.getMonthlyStatics();
         return orders;
     }
 }

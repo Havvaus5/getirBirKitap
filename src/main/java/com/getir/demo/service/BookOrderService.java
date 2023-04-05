@@ -9,7 +9,7 @@ import java.util.List;
 public interface BookOrderService {
     String save(OrderDTO orderDTO);
 
-    List<OrderDTO> getOrdersByCustomerId(Long customerId);
+    List<OrderDTO> getOrdersByCustomerId(Long customerId, int page, int size);
 
     OrderDetailDTO getByOrderId(Long orderId);
 

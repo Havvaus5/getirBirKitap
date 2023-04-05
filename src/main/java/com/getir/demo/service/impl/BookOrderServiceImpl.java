@@ -7,12 +7,14 @@ import com.getir.demo.model.dto.OrderDetailDTO;
 import com.getir.demo.model.entity.Book;
 import com.getir.demo.model.entity.BookOrder;
 import com.getir.demo.model.type.OrderStatus;
-import com.getir.demo.repository.BookRepository;
 import com.getir.demo.repository.BookOrderRepository;
-import com.getir.demo.service.CustomerService;
+import com.getir.demo.repository.BookRepository;
 import com.getir.demo.service.BookOrderService;
+import com.getir.demo.service.CustomerService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -51,7 +53,8 @@ public class BookOrderServiceImpl implements BookOrderService {
     }
 
     @Override
-    public List<OrderDTO> getOrdersByCustomerId(Long customerId) {
+    public List<OrderDTO> getOrdersByCustomerId(Long customerId, int page, int size) {
+        Pageable pageRequest = PageRequest.of(page, size);
         List<BookOrder> customerBookOrders = bookOrderRepository.getCustomerOrders(customerId);
         return orderedMapper.map(customerBookOrders);
     }

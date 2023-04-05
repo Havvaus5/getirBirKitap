@@ -3,8 +3,8 @@ package com.getir.demo.controller;
 
 import com.getir.demo.model.common.BaseResponse;
 import com.getir.demo.model.dto.CustomerDTO;
-import com.getir.demo.service.CustomerService;
 import com.getir.demo.service.BookOrderService;
+import com.getir.demo.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +24,8 @@ public class CustomerController {
     }
 
     @GetMapping("orders")
-    public BaseResponse getOrdersByCustomerId(@RequestParam Long customerId) {
-        return BaseResponse.createSucessResponse(bookOrderService.getOrdersByCustomerId(customerId));
+    public BaseResponse getOrdersByCustomerId(@RequestParam Long customerId, @PathVariable int page, @PathVariable int size) {
+        return BaseResponse.createSucessResponse(bookOrderService.getOrdersByCustomerId(customerId, page, size));
     }
 
 }

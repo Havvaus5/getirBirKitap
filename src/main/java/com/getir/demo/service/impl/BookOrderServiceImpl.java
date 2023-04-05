@@ -53,7 +53,7 @@ public class BookOrderServiceImpl implements BookOrderService {
     }
 
     @Override
-    public List<OrderDTO> getOrdersByCustomerId(Long customerId, int page, int size) {
+    public List<OrderDetailDTO> getOrdersByCustomerId(Long customerId, int page, int size) {
         Pageable pageRequest = PageRequest.of(page, size);
         List<BookOrder> customerBookOrders = bookOrderRepository.getCustomerOrders(customerId);
         return orderedMapper.map(customerBookOrders);
@@ -67,7 +67,7 @@ public class BookOrderServiceImpl implements BookOrderService {
     }
 
     @Override
-    public List<OrderDTO> queryByDate(LocalDateTime startDate, LocalDateTime endDate) {
+    public List<OrderDetailDTO> queryByDate(LocalDateTime startDate, LocalDateTime endDate) {
         List<BookOrder> bookOrderList = bookOrderRepository.findByCreatedTimeBetween(startDate, endDate);
         return orderedMapper.map(bookOrderList);
     }

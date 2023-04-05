@@ -21,5 +21,7 @@ public interface OrderMapper {
     })
     OrderDetailDTO map(BookOrder bookOrder);
 
-    List<OrderDTO> map(List<BookOrder> customerBookOrders);
+    List<OrderDetailDTO> map(List<BookOrder> customerBookOrders);
+
+
 }

@@ -9,9 +9,9 @@ import java.util.List;
 public interface BookOrderService {
     String save(OrderDTO orderDTO);
 
-    List<OrderDTO> getOrdersByCustomerId(Long customerId, int page, int size);
+    List<OrderDetailDTO> getOrdersByCustomerId(Long customerId, int page, int size);
 
     OrderDetailDTO getByOrderId(Long orderId);
 
-    List<OrderDTO> queryByDate(LocalDateTime startDate, LocalDateTime endDate);
+    List<OrderDetailDTO> queryByDate(LocalDateTime startDate, LocalDateTime endDate);
 }

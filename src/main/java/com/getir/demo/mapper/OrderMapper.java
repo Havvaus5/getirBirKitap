@@ -14,7 +14,8 @@ public interface OrderMapper {
 
     BookOrder map(OrderDTO orderDTO);
 
-    @Mappings({@Mapping(source = "bookOrder.customer.name", target = "customerName"),
+    @Mappings({
+            @Mapping(source = "bookOrder.customer.name", target = "customerName"),
             @Mapping(source = "bookOrder.customer.surname", target = "customerSurname"),
             @Mapping(source = "bookOrder.book.name", target = "bookName")
     })

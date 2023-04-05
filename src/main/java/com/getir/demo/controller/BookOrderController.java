@@ -8,7 +8,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping(value = "/order")
@@ -28,8 +30,11 @@ public class BookOrderController {
     }
 
     @GetMapping("/query-by-date")
-    public BaseResponse queryByDate(@RequestParam LocalDateTime startDate, @RequestParam LocalDateTime endDate) {
-        return BaseResponse.createSucessResponse(bookOrderService.queryByDate(startDate, endDate));
+    public BaseResponse queryByDate(@RequestParam String startDate, @RequestParam String endDate) {
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime start = LocalDate.parse(startDate, formatter).atStartOfDay();
+        LocalDateTime end = LocalDate.parse(endDate, formatter).atStartOfDay().plusDays(1);
+        return BaseResponse.createSucessResponse(bookOrderService.queryByDate(start, end));
     }
 
 }

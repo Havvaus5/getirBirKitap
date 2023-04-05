@@ -65,8 +65,8 @@ public class BookOrderServiceImpl implements BookOrderService {
 
     @Override
     public List<OrderDTO> queryByDate(LocalDateTime startDate, LocalDateTime endDate) {
-        //TODO Optional<BookOrder> bookOrder = bookOrderRepository.fi
-        return null;
+        List<BookOrder> bookOrderList = bookOrderRepository.findByCreatedTimeBetween(startDate, endDate);
+        return orderedMapper.map(bookOrderList);
     }
 
 }

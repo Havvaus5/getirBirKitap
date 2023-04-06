@@ -16,12 +16,12 @@ public class CustomerContact extends AbstractBaseEntity {
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
 
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
-    @Column(name = "PHONE_NUMBER")
+    @Column(name = "PHONE_NUMBER", unique = true)
     private String phoneNumber;
 
-    @Column(name = "ADRES")
+    @Column(name = "ADRES", unique = true)
     private String adres;
 }

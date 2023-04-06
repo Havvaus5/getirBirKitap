@@ -22,6 +22,6 @@ public class CustomerContact extends AbstractBaseEntity {
     @Column(name = "PHONE_NUMBER", unique = true)
     private String phoneNumber;
 
-    @Column(name = "ADRES", unique = true)
+    @Column(name = "ADRES")
     private String adres;
 }

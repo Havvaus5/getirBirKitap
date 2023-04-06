@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 public class BookDTO {
     @NotBlank
     private String name;
-    @NotNull
-    private Long authorId;
+
+    private AuthorDTO authorDTO;
+
     @NotNull
     private BigDecimal price;
 
     @Min(value = 1, message = "En az bir stok olmalı")
     private int stockQuantity;
-
 
 }

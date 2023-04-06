@@ -28,11 +28,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public String save(BookDTO bookDTO) {
+        Author author = authorService.getAuthor(bookDTO.getAuthorDTO());
         Book book = bookMapper.map(bookDTO);
-        Author author = authorService.getAuthor(bookDTO.getAuthorId());
         book.setAuthor(author);
         Book save = bookRepository.save(book);
-        return String.format("Kitap %s id ile sisteme kaydedilmiştir.", save.getId());
+        return String.format("Kitap id: %s, author id: %s ile sisteme kaydedilmiştir.", save.getId(), author.getId());
     }
 
     @Override

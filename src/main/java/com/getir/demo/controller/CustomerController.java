@@ -23,8 +23,8 @@ public class CustomerController {
         return BaseResponse.createSucessResponse(customerService.save(customerDTO));
     }
 
-    @GetMapping("orders")
-    public BaseResponse getOrdersByCustomerId(@RequestParam Long customerId, @PathVariable int page, @PathVariable int size) {
+    @GetMapping("/orders")
+    public BaseResponse getOrdersByCustomerId(@RequestParam Long customerId, @RequestParam int page, @RequestParam int size) {
         return BaseResponse.createSucessResponse(bookOrderService.getOrdersByCustomerId(customerId, page, size));
     }
 
